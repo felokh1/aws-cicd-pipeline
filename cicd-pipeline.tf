@@ -42,8 +42,8 @@ resource "aws_codebuild_project" "tf-apply" {
     type                        = "LINUX_CONTAINER"
     image_pull_credentials_type = "SERVICE_ROLE"
     registry_credential{
-        credential = var.dockerhub_credentials
-        credential_provider = "SECRETS_MANAGER"
+        credential = var.dockerhub_credentials    # the dockerhub credential saved in secrets
+        credential_provider = "SECRETS_MANAGER"   # the location where the credential is saved
     }
  }
  source {
